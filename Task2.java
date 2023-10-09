@@ -18,11 +18,11 @@ class FirstNonRepeatingStream {
     head = null;
     tail = null;
   }
-public void add(char c) {
+ public void add(char c) {
     int index = (int) c;
-    if (characters_Array[index] == null) {
+    if (chatacters_Array[index] == null) {
       Node newNode = new Node(c);
-      characters_Array[index] = newNode;
+      chatacters_Array[index] = newNode;
       if (head == null) {
         head = newNode;
         tail = newNode;
@@ -31,8 +31,8 @@ public void add(char c) {
         newNode.prev = tail;
         tail = newNode;
       }
-    } else if (characters_Array[index] != null) {
-      Node existing_Char = characters_Array[index];
+    } else if (chatacters_Array[index] != null) {
+      Node existing_Char = chatacters_Array[index];
       if (existing_Char != null) {
         if (existing_Char == head) {
           head = existing_Char.next;
@@ -41,17 +41,17 @@ public void add(char c) {
           }
         } else {
           if (existing_Char.prev != null) existing_Char.prev.next = existing_Char.next;
-          existing_Char.next.prev = existing_Char.prev;  // This line is incorrect
         }
         if (existing_Char == tail) {
           tail = existing_Char.prev;
         } else {
           existing_Char.next.prev = existing_Char.prev;
         }
-        characters_Array[index] = null; // Mark as repeated
+        chatacters_Array[index] = null; // Mark as repeated
       }
     }
   }
+
 }
 
 public class Task2 {
