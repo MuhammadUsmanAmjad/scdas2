@@ -1,5 +1,5 @@
 class FirstNonRepeatingStream {
-  private Node[] characters_Array;
+  private Node[] chatacters_Array;
   private Node head;
   private Node tail;
 
@@ -14,11 +14,12 @@ class FirstNonRepeatingStream {
   }
 
   public FirstNonRepeatingStream() {
-    characters_Array = new Node[256]; //  ASCII characters
+    chatacters_Array = new Node[256]; //  ASCII characters
     head = null;
     tail = null;
   }
- public void add(char c) {
+
+  public void add(char c) {
     int index = (int) c;
     if (chatacters_Array[index] == null) {
       Node newNode = new Node(c);
@@ -52,6 +53,12 @@ class FirstNonRepeatingStream {
     }
   }
 
+  public char getFirstNonRepeating() {
+    if (head != null) {
+      return head.character;
+    }
+    return '-';
+  }
 }
 
 public class Task2 {
@@ -60,6 +67,15 @@ public class Task2 {
     f.add('a');
     f.add('b');
     f.add('a');
+    System.out.println(f.getFirstNonRepeating()); // Output: 'b'
+
     f.add('b');
+    System.out.println(f.getFirstNonRepeating()); // Output: '-'
+    FirstNonRepeatingStream f1 = new FirstNonRepeatingStream();
+    f1.add('a');
+    f1.add('b');
+    f1.add('c');
+    f1.add('b');
+    System.out.println(f1.getFirstNonRepeating()); // Output: 'a'
   }
 }
